@@ -3,21 +3,23 @@
 #include <string>
 
 class Helmet : public InventoryItem {
-    public:
+    private:
         std::string id2;
         std::string name2;
+    public:
         Helmet(std::string id, std::string name)
         : id2(id), name2(name) {}
 
         std::string inventoryId() const override { return id2; }
-        std::string name() const override { return name2ye ; }
+        std::string name() const override { return name2; }
+        std::string describe() const override { return "Helmet: " + name2; }
 
         void print(std::ostream& os) const override {
             os << id2 << " " << name2;
         }
 };
 
-class Dock : public InvertonyItem, public EnergyConsumer {
+class Dock : public InventoryItem, public EnergyConsumer {
     private:
         std::string id2;
         std::string name2;
@@ -28,6 +30,7 @@ class Dock : public InvertonyItem, public EnergyConsumer {
 
         std::string inventoryId() const override { return id2; }
         std::string name() const override { return name2; }
+        std::string describe() const override { return "Dock: " + name2; }
 
         double dailyEnergy() const override {
             return energy2;
@@ -36,5 +39,4 @@ class Dock : public InvertonyItem, public EnergyConsumer {
         void print(std::ostream& os) const override {
             os << id2 << " " << name2;
         }
-
 };
