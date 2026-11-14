@@ -1,16 +1,17 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include <memory>
 
 template <typename T, int Cap>
 class Registry {
 private:
-    std::vector<T> items2;
+    std::vector<std::unique_ptr<T>> items2;
 
 public:
-    void add(const T& item) {
+    void add(std::unique_ptr<T> item) {
         if (items2.size() < Cap) {
-            items2.push_back(item);
+            items2.push_back(std::move(item));
         }
     }
 
@@ -19,7 +20,11 @@ public:
     }
 
     const T& operator[](size_t index) const {
-        return items2[index];
+        return *items2[index];
+    }
+
+    T& operator[](size_t index) {
+        return *items2[index];
     }
 };
 
