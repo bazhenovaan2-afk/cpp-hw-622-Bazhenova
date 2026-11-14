@@ -15,4 +15,4 @@ class InspectionError : public FleetError {
 class ArgumentError : public FleetError {
     public:
         ArgumentError(const std::string& str_err) : FleetError(str_err) {}
-}
+};
