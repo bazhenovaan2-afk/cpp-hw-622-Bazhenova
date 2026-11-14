@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <iostream>
+#include <ostream>
 
 class InventoryItem {
     public:
@@ -20,3 +20,8 @@ class EnergyConsumer {
         virtual ~EnergyConsumer() = default;
         virtual double dailyEnergy() const = 0;
 };
+
+inline std::ostream& operator<<(std::ostream& os, const InventoryItem& item) {
+    item.print(os);
+    return os;
+}
