@@ -9,6 +9,7 @@ class InventoryItem {
         virtual std::string inventoryId() const = 0;
         virtual std::string name() const = 0;
         virtual std::string describe() const = 0;
+        virtual void print(std::ostream& os) const = 0;
 
         bool operator<(const InventoryItem& other) const {
             return inventoryId() < other.inventoryId();
