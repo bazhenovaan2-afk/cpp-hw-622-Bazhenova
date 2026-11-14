@@ -24,6 +24,7 @@ class Bicycle : public Transport {
     public:
         Bicycle(std::string id, std::string name, int score)
             : Transport(id, name, score) {}
+        std::string describe() const override { return "Bicycle: " + name2; }
 };
 
 class El_samokat : public Transport, public EnergyConsumer {
@@ -32,7 +33,7 @@ class El_samokat : public Transport, public EnergyConsumer {
     public:
     El_samokat(std::string id, std::string name, double energy, int score)
     : Transport(id, name, score), energy_d(energy) {}
-
+    std::string describe() const override { return "Electric Scooter: " + name2; }
     double dailyEnergy() const override { 
         return energy_d; 
     }
