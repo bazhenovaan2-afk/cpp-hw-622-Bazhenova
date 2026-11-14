@@ -15,6 +15,15 @@ public:
         }
     }
 
+    void removeById(const std::string& id) {
+        for (size_t i = 0; i < items2.size(); ++i) {
+            if (items2[i]->inventoryId() == id) {
+                items2.erase(items2.begin() + i);
+                break;
+            }
+        }
+    }
+
     size_t size() const {
         return items2.size();
     }
