@@ -9,7 +9,7 @@ class ServiceCenter {
             std::transform(low.begin(), low.end(), low.begin(), ::tolower);
 
             if (low.find("broken") != std::string::npos) {
-                throw InspectionError("error: inspection rejected");
+                throw InspectionError("inspection rejected");
             }
         }
 };
