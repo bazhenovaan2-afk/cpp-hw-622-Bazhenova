@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <algorithm>
-#include "Errors.hpp"
+#include "errors.hpp"
 class ServiceCenter {
     public:
         static void inspect(const std::string& name) {
