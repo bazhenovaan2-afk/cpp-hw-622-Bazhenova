@@ -5,7 +5,7 @@
 
 class InventoryItem {
     public:
-        virtual ~InventoryItem = default;
+        virtual ~InventoryItem() = default;
         virtual std::string inventoryId() const = 0;
         virtual std::string name() const = 0;
         virtual std::string describe() const = 0;
